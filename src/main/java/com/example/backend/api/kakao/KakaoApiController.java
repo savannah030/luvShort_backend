@@ -22,7 +22,9 @@ public class KakaoApiController {
     public ResponseEntity<?> kakaoLogin(@RequestBody JSONObject jsonObject){
         log.info("accessToken: {}", jsonObject); //ok accessToken: {"access_token":"rLdYAqQVdVdjbk29pac8ZQ3PHL-cxdM_yy1ISAo9dJgAAAGAUQ9Phw"}
         String accessToken = jsonObject.getAsString("access_token");// value만 추출해야함
-        ResponseEntity<?> response = kakaoApiService.getUserByAccessToken(accessToken);
+        //ResponseEntity<?> response = kakaoApiService.getUserByAccessToken(accessToken); //ok
+        Long id = kakaoApiService.getTokenInfoByAccessToken(accessToken); // test 카카오 고유 회원번호
+        log.info("id in kakaoApiController: {}", id);
 
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }

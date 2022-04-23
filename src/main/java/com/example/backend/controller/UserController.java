@@ -42,6 +42,7 @@ public class UserController {
     // cf) 카카오 '토큰 정보 보기' API https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api#get-token-info
     @PostMapping("/")
     public ResponseEntity<?> isSignUp(@RequestBody KakaoAccessToken accessToken) throws BackendException { // 1. POST 요청
+        /*
         Long socialId = kakaoApiService.accessTokenInfo(accessToken.getAccessToken()); //2.
 
         // FIXME: 일단 카카오만
@@ -52,11 +53,13 @@ public class UserController {
         else{
             log.info("회원가입해야 합니다");
         }
+         */
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody KakaoAccessToken requestDto) throws BackendException {
+        /*
         log.info("KakaoAccessToken: {}",requestDto);
         String accessToken = requestDto.getAccessToken();
         // step3 사용자 정보 가져오기
@@ -67,7 +70,7 @@ public class UserController {
         log.info("synched_at : {}", dto.getSynched_at());
         log.info("properties : {}", dto.getProperties());
         log.info("KakaoAccount : {}", dto.getKakaoAccount());
-
+        */
         /**
          * HTTP/1.1 200 OK
          * {
